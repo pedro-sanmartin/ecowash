@@ -1,0 +1,16 @@
+<app-header [options]="headerOptions"></app-header>
+<div class="container">
+  <div class="container__main">
+    <div class="main__img">
+      <img src="../../../assets/images/rafiki.svg" alt="Imagen inicio"/>
+    </div>
+    <div class="main__navigation">
+      <a
+        class="bs-button bs-button-primary"
+        *ngFor="let item of accesos"
+        [routerLink]="item.url"
+        >{{ item.nombre }}</a
+      >
+    </div>
+  </div>
+</div>

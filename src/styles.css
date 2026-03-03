@@ -1,0 +1,603 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --bs-green: #0db02b;
+  --bs-light-green: #81d364;
+  --bs-dark-green: #0a9441;
+  --bs-pressed-green: #077641;
+  --bs-border-green: #a7eb90;
+  --bs-tag-green: #007505;
+  --bs-status-green: #e0ffe5;
+  --bs-background-tag-green: #ebf8ec;
+  --bs-border-tag-green: #a2c1a3;
+  --bs-white: #ffffff;
+  --bs-grey: #c2c2c2;
+  --bs-red: #b20000;
+  --bs-status-red: #fbefef;
+  --bs-blue: #0065c1;
+  --bs-status-blue: #f0f8ff;
+  --bs-medium-red: #eb5757;
+  --bs-medium-grey: #757575;
+  --bs-body-black: #424242;
+  --bs-background: #f5f5f5;
+  --bs-button: #f5f5f5;
+  --bs-text-disabled: #9e9e9e;
+  --bs-font: "Inter", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bs-background);
+  color: var(--bs-body-black);
+  font-family: var(--bs-font);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: var(--bs-font);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+p {
+  font-family: var(--bs-font);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.background__auth {
+  background: var(--bs-green);
+  color: var(--bs-white);
+}
+
+.background__auth .bs-container__error p {
+  color: var(--bs-white);
+}
+
+.color-white {
+  color: var(--bs-white);
+}
+
+.color-red {
+  color: var(--bs-red);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  max-width: 1320px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.container-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bs-input {
+  background: var(--bs-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 4px;
+  height: 36px;
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+  font-family: var(--bs-font);
+}
+
+.bs-input-green {
+  background: var(--bs-green);
+  color: var(--bs-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 4px;
+  height: 36px;
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+  font-family: var(--bs-font);
+}
+
+.bs-textarea {
+  background: var(--bs-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 4px;
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+  font-family: var(--bs-font);
+}
+
+.bs-textarea-border {
+  background: var(--bs-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 4px;
+  width: 100%;
+  border: 1px solid #9e9e9e;
+  box-sizing: border-box;
+  font-family: var(--bs-font);
+  resize: none;
+}
+
+.bs-input-border {
+  background: var(--bs-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 4px;
+  height: 36px;
+  width: 100%;
+  border: 1px solid var(--bs-text-disabled);
+  box-sizing: border-box;
+  font-family: var(--bs-font);
+  color: #757575;
+}
+
+.bs-multiselect-border {
+  border: 1px solid var(--bs-text-disabled);
+}
+
+.bs-parrafo-saldo {
+  font-family: var(--bs-font);
+  font-size: 14px;
+}
+
+.bs-parrafo-bottom-modal {
+  color: var(--bs-medium-grey);
+}
+
+.bs-span-saldo {
+  font-weight: bold;
+}
+
+.bs-container-input .error {
+  border: solid 1px var(--bs-red);
+}
+
+.bs-input::placeholder {
+  font-family: var(--bs-font);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--bs-grey);
+}
+
+.bs-textarea::placeholder {
+  font-family: var(--bs-font);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--bs-grey);
+}
+
+.bs-container__error p {
+  color: var(--bs-red);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  align-self: stretch;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.bs-container__error .icon__error {
+  width: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3px;
+}
+
+.bs-container-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  padding: 0 0 1rem 0;
+}
+
+.bs-container-input-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.bs-container-saldo {
+  background-color: var(--bs-white);
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.bs-link {
+  float: right;
+  text-decoration: none;
+  color: var(--bs-white);
+}
+
+/*** Buttons ***/
+
+.bs-button,
+.bs-modal button.bs-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 0.5rem;
+  height: 36px;
+  font-family: var(--bs-font);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-appearance: button;
+  border-radius: 0;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.bs-button .icon,
+.bs-modal button.bs-button {
+  display: flex;
+}
+
+.bs-button-secondary,
+.bs-modal button.bs-button-secondary {
+  background-color: var(--bs-button);
+  border-color: var(--bs-light-green) 1px;
+  color: var(--bs-green);
+}
+
+.bs-button-primary,
+.bs-modal button.bs-button-primary {
+  background-color: var(--bs-green);
+  border-color: var(--bs-green) 1px;
+  color: var(--bs-white);
+}
+
+.bs-button-primary:hover,
+.bs-modal button.bs-button-primary:hover {
+  background-color: var(--bs-dark-green);
+  border-color: var(--bs-dark-green) 1px;
+  color: var(--bs-white);
+}
+
+.bs-button-primary:active,
+.bs-modal button.bs-button-primary:active {
+  background-color: var(--bs-pressed-green);
+  border-color: var(--bs-pressed-green) 1px;
+  color: var(--bs-white);
+}
+
+.bs-button-primary:focus,
+.bs-modal button.bs-button-primary:focus {
+  background-color: var(--bs-green);
+  border-color: var(--bs-border-green) 1px;
+  color: var(--bs-white);
+}
+
+/*** Modal ***/
+
+.bs-modal {
+  border-radius: 0 !important;
+  padding: 1rem;
+  width: 350px !important;
+}
+
+.bs-modal-large {
+  border-radius: 0 !important;
+  padding: 1rem;
+  width: 350px;
+  height: 530px;
+}
+
+.bs-modal .bs-big-title {
+  font-family: var(--bs-font);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 20px;
+  text-align: center;
+  color: var(--bs-body-black);
+}
+
+.bs-modal .bs-title {
+  font-family: var(--bs-font);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--bs-body-black);
+}
+
+.bs-modal .bs-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--bs-body-black);
+}
+
+.bs-modal .bs-text-left {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--bs-body-black);
+  text-align: left;
+}
+
+.cdk-overlay-pane.my-dialog {
+  position: relative !important;
+}
+
+.mat-dialog-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  line-height: 14px;
+  min-width: auto;
+  background: transparent;
+  border: none;
+}
+
+/*** Formularios ***/
+
+.bs-form {
+  padding: 2rem 0;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.bs-form__actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.bs-form-dialog {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.bs-form__actions a,
+.bs-form__actions button {
+  width: 100%;
+}
+
+/* Input Radio */
+
+.custom-control-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.custom-control-label {
+  position: relative;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before,
+.custom-control-label:checked ~ .custom-control-label::before {
+  border: 6px solid var(--bs-green);
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: none;
+}
+
+.custom-control-label::before {
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: -1.5rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  content: "";
+  background-color: #fff;
+  border: #adb5bd solid 1px;
+  border-radius: 50px;
+}
+
+.custom-control-label::after {
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  content: "";
+  background: no-repeat 50%/50% 50%;
+}
+
+.bs-form .container__radio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.bs-form-dialog .container__radio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+}
+
+.bs-form .input__radio {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bs-form-dialog .input__radio {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bs-input-radio {
+  margin-right: 5px;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(74, 74, 74, 0.5);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-dialog-container {
+  border-radius: 0px !important;
+  width: 400px !important;
+}
+
+.div2Col {
+  display: inline-flex;
+  width: 100%;
+  flex-direction: initial;
+  gap: 0.5rem;
+}
+
+.divImagenBoleta {
+  background: #424242;
+  text-align: center;
+  padding: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.bs-modal button.botonDescargaDocu {
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.divCanCar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  color: #9e9e9e;
+}
+
+.divA {
+  width: 50%;
+  text-align: left;
+}
+
+.divB {
+  width: 50%;
+  text-align: left;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-25 {
+  margin-bottom: 25px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-118 {
+  width: 118px;
+}
+
+.bs-footer-message {
+  font-size: 12px;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

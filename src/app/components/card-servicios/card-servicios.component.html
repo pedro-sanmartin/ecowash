@@ -1,0 +1,35 @@
+<div class="container__card">
+  <div
+    class="card__text"
+    [ngClass]="{ 'text-inactive': !servicio.idEstadoServicio }"
+  >
+    <h3 class="card-text__nombre">
+      {{ servicio.nombre }}
+    </h3>
+    <h3 class="font-bold">{{ servicio.precio | customCurrency }}</h3>
+    <p>código: {{ servicio.codigo }}</p>
+  </div>
+  <div class="card__actions">
+    <div
+      class="actions__status"
+      [ngClass]="{ active: servicio.idEstadoServicio }"
+    >
+      <span>{{ servicio.idEstadoServicio | status }}</span>
+      <i-feather
+        *ngIf="servicio.idEstadoServicio"
+        class="icon"
+        name="check-circle"
+      ></i-feather>
+      <i-feather
+        *ngIf="!servicio.idEstadoServicio"
+        class="icon"
+        name="x-circle"
+      ></i-feather>
+    </div>
+    <a
+      [routerLink]="['/servicios/editar-servicio', servicio.id]"
+      class="bs-button bs-button-primary"
+      >Editar</a
+    >
+  </div>
+</div>

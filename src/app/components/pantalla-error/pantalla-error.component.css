@@ -1,0 +1,34 @@
+.bs-pantalla-error{
+    margin-top: 65px;
+    max-width: 400px;
+    z-index: 999999;
+}
+
+.main__img {
+    display: flex;
+    padding: 4.5rem 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__navigation {
+    width: 80%;
+    margin: 2rem auto;
+}
+
+.bs-parrafo-error{
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 24px;
+    width: 228px;
+    margin: 0 auto;
+}
+
+.bs-parrafo-error-bold{
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 24px;
+}

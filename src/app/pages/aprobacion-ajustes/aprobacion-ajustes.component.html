@@ -1,0 +1,20 @@
+<app-header [options]="headerOptions"></app-header>
+
+<div class="container">
+    <div class="container-center">
+        <button class="bs-button bs-button-primary botonFiltrarUsuarios" (click)="openDialog()">
+            Filtrar
+          </button>
+          <p class="parrafofiltrarUsuarios">Aplica filtros para generar un reporte</p>
+    </div>
+    <form 
+    class="pagar__form bs-form"
+    [formGroup]="form"
+    >
+        <div class="bs-card-abono">
+            <app-card-aprobacion-ajustes></app-card-aprobacion-ajustes>
+        </div>
+    </form>
+    
+  </div>
+

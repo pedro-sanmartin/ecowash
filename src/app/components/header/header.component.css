@@ -1,0 +1,36 @@
+.header {
+    background: var(--bs-green);
+    height: 72px;
+    padding: 1rem;
+}
+
+.container__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header .icon {
+    width: 20px;
+    color: var(--bs-white);
+}
+
+.container__header {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.modalHeader {
+    position: fixed;
+    /*     background: rgba(0,0,0,0.8); */
+    height: 100vh;
+    width: 100%;
+    padding-top: 100px;
+    justify-content: center;
+    display: flex;
+    /*     opacity: .5; */
+    z-index: -1;
+}

@@ -1,0 +1,356 @@
+<app-header [options]="headerOptions"></app-header>
+
+<div class="container">
+  <form
+    class="usuario__form bs-form"
+    [formGroup]="form"
+    (ngSubmit)="guardarLocal()"
+  >
+    <div class="bs-container-input">
+      <label>Nombre</label>
+      <div class="input__icon">
+        <input
+          [ngClass]="{
+            error:
+              formControl['nombre'].invalid && formControl['nombre'].touched
+          }"
+          class="bs-input-border"
+          type="text"
+          formControlName="nombre"
+          placeholder="Nombre"
+        />
+      </div>
+      <div
+        *ngIf="formControl['nombre'].invalid && formControl['nombre'].touched"
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe
+          ingresar un nombre
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Código</label>
+      <div class="input__icon">
+        <input
+          [ngClass]="{
+            error:
+              formControl['codigo'].invalid && formControl['codigo'].touched
+          }"
+          class="bs-input-border"
+          type="text"
+          formControlName="codigo"
+          placeholder="001"
+        />
+      </div>
+      <div
+        *ngIf="formControl['codigo'].invalid && formControl['codigo'].touched"
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe
+          ingresar un código
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Región</label>
+      <div class="input__icon">
+        <select
+          (change)="obtenerProvinciasPorRegion($event)"
+          [ngClass]="{
+            error:
+              formControl['idRegion'].invalid && formControl['idRegion'].touched
+          }"
+          class="bs-input-border"
+          formControlName="idRegion"
+        >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of regiones" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          formControl['idRegion'].invalid && formControl['idRegion'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe
+          seleccionar una Región
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Provincia</label>
+      <div class="input__icon">
+        <select
+          (change)="obtenerComunasPorProvincia($event)"
+          [ngClass]="{
+            error:
+              formControl['idProvincia'].invalid &&
+              formControl['idProvincia'].touched
+          }"
+          class="bs-input-border"
+          formControlName="idProvincia"
+        >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of provincias" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          formControl['idProvincia'].invalid &&
+          formControl['idProvincia'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe
+          seleccionar una Provincia
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Comuna</label>
+      <div class="input__icon">
+        <select
+          [ngClass]="{
+            error:
+              formControl['idComuna'].invalid && formControl['idComuna'].touched
+          }"
+          class="bs-input-border"
+          formControlName="idComuna"
+        >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of comunas" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          formControl['idComuna'].invalid && formControl['idComuna'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe
+          seleccionar un Rol
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Dirección</label>
+      <div class="input__icon">
+        <input
+          class="bs-input-border"
+          [ngClass]="{
+            error:
+              formControl['direccion'].invalid &&
+              formControl['direccion'].touched
+          }"
+          type="text"
+          formControlName="direccion"
+          placeholder="Dirección"
+        />
+      </div>
+      <div
+        *ngIf="
+          formControl['direccion'].invalid && formControl['direccion'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather>
+          Debe ingresar una dirección
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Mandante</label>
+      <div class="input__icon">
+        <input
+          [ngClass]="{
+            error:
+              formControl['mandante'].invalid && formControl['mandante'].touched
+          }"
+          class="bs-input-border"
+          type="text"
+          formControlName="mandante"
+          placeholder="Nombre mandante"
+        />
+      </div>
+      <div
+        *ngIf="
+          formControl['mandante'].invalid && formControl['mandante'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather>
+          Debe ingresar un nombre de mandante
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Jefe de ventas</label>
+      <div class="input__icon">
+        <select
+          [ngClass]="{
+            error:
+              formControl['idJefeVentas'].invalid &&
+              formControl['idJefeVentas'].touched
+          }"
+          class="bs-input-border"
+          formControlName="idJefeVentas"
+        >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of jefesDeVenta" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          formControl['idJefeVentas'].invalid &&
+          formControl['idJefeVentas'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe
+          seleccionar un Jefe de Ventas
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Operador</label>
+      <div class="input__icon">
+        <select
+          [ngClass]="{
+            error:
+              formControl['idOperador'].invalid &&
+              formControl['idOperador'].touched
+          }"
+          class="bs-input-border"
+          formControlName="idOperador"
+        >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of operadores" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          formControl['idOperador'].invalid && formControl['idOperador'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe
+          seleccionar un Operador
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Valor garantía</label>
+      <div class="input__icon" style="position: relative">
+        <input
+          (keyup)="ajusteMonto($event)"
+          style="padding-left: 1.5rem"
+          [ngClass]="{
+            error:
+              formControl['valorGarantia'].invalid &&
+              formControl['valorGarantia'].touched
+          }"
+          class="bs-input-border"
+          type="text"
+          formControlName="valorGarantia"
+          placeholder="150000"
+        />
+        <i style="position: absolute; top: 8px; left: 10px">$</i>
+      </div>
+      <div
+        *ngIf="
+          formControl['valorGarantia'].invalid &&
+          formControl['valorGarantia'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather>
+          Debe ingresar un valor de garantía
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Servicios</label>
+      <ng-multiselect-dropdown
+        class="bs-multiselect-border"
+        [settings]="dropdownSettings"
+        [data]="servicios"
+        [placeholder]="'Seleccione'"
+        formControlName="servicios"
+        [ngClass]="{
+          error:
+            formControl['servicios'].invalid && formControl['servicios'].touched
+        }"
+      >
+      </ng-multiselect-dropdown>
+      <div
+        *ngIf="
+          formControl['servicios'].invalid && formControl['servicios'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather>
+          Debe ingresar al menos un servicio
+        </p>
+      </div>
+    </div>
+    <div class="bs-container-input">
+      <label>Estado</label>
+      <div class="container__radio">
+        <div class="input__radio">
+          <input
+            class="custom-control-input"
+            id="activo"
+            type="radio"
+            name="idEstado"
+            value="1"
+            formControlName="idEstado"
+          /><label class="custom-control-label" for="activo">Activo</label>
+        </div>
+        <div class="input__radio">
+          <input
+            class="custom-control-input"
+            id="inactivo"
+            type="radio"
+            name="idEstado"
+            value="0"
+            formControlName="idEstado"
+          /><label class="custom-control-label" for="inactivo">Inactivo</label>
+        </div>
+      </div>
+    </div>
+    <div class="bs-form__actions">
+      <a class="bs-button bs-button-secondary" [routerLink]="['/locales']"
+        >Volver</a
+      >
+      <button *ngIf="!isEditar" class="bs-button bs-button-primary">
+        Crear
+      </button>
+      <button *ngIf="isEditar" class="bs-button bs-button-primary">
+        Guardar
+      </button>
+    </div>
+  </form>
+</div>

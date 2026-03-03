@@ -1,0 +1,35 @@
+<div class="container-menu" [ngClass]="{ 'show-menu': showMenu | async }">
+  <div class="container-menu__items">
+    <div class="menu__icon-close">
+      <a (click)="closeMenu()" class="color-white">
+        <i-feather class="icon" name="x"></i-feather>
+      </a>
+    </div>
+    <div class="menu__nav">
+      <ul>
+        <li>
+          <a class="menu__link" href="#!">
+            <div class="nav__link">
+              <i-feather class="icon" name="home"></i-feather> Inicio
+            </div>
+          </a>
+        </li>
+        <li *ngFor="let item of items">
+          <a class="menu__link" [routerLink]="item.url">
+            <div class="nav__link">
+              <i-feather class="icon" name="{{ item.icon }}"></i-feather>
+              {{ item.nombre }}
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="menu__footer">
+    <button class="menu__link" (click)="logout()">
+      <div class="nav__link">
+        <i-feather name="log-out"></i-feather> Cerrar Sesión
+      </div>
+    </button>
+  </div>
+</div>

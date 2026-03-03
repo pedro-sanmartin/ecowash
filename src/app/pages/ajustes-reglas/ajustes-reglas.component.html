@@ -1,0 +1,173 @@
+<app-header [options]="headerOptions"></app-header>
+
+<div class="container">
+    <form 
+    class="ajustesReglas__form bs-form"
+    [formGroup]="form"
+    >
+
+        <div class="bs-container-input divNomLoc">
+            <label>Nombre local</label>
+            <div class="input__icon inputNomLoc">
+              <select
+                [ngClass]="{
+                  error:
+                    formControl['idLocal'].invalid &&
+                    formControl['idLocal'].touched
+                }"
+                class="bs-input-border"
+                formControlName="idLocal"
+              >
+                <option value="">Seleccione</option>
+                <option *ngFor="let item of locales" [value]="item.id">
+                  {{ item.nombre }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+          *ngIf="
+            formControl['idLocal'].invalid && formControl['idLocal'].touched
+          "
+          class="bs-container__error errorNomLoc"
+        >
+          <p class="bs-input-error-message">
+            <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+            Debe seleccionar un local
+          </p>
+        </div>
+
+          <div class="bs-container-input">
+            <label>Plan mensual</label>
+            <div class="input__icon">
+                <select [ngClass]="{
+                    error:
+                      formControl['planMensual'].invalid &&
+                      formControl['planMensual'].touched
+                  }"
+                  class="bs-input-border"
+                  formControlName="planMensual"
+                >
+                    <option value="">Seleccione</option>
+                    <option >Agosto</option>
+                    <option >Septiembre</option>
+                    <option >Octubre</option>
+                </select>
+            </div>
+            <div
+            *ngIf="
+              formControl['planMensual'].invalid && formControl['planMensual'].touched
+            "
+            class="bs-container__error"
+          >
+            <p class="bs-input-error-message">
+              <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+              Debe seleccionar un mes
+            </p>
+          </div>
+        </div>
+
+        <div class="bs-container-input">
+            <label>Plan semanal</label>
+            <div class="input__icon">
+                <select [ngClass]="{
+                    error:
+                      formControl['planSemanal'].invalid &&
+                      formControl['planSemanal'].touched
+                  }"
+                  class="bs-input-green"
+                  formControlName="planSemanal"
+                >
+                    <option value="">Seleccione</option>
+                    <option >Semana 1: 100</option>
+                    <option >Semana 2: 100</option>
+                    <option >Semana 3: 100</option>
+                </select>
+            </div>
+            <div
+            *ngIf="
+              formControl['planSemanal'].invalid && formControl['planSemanal'].touched
+            "
+            class="bs-container__error"
+          >
+            <p class="bs-input-error-message">
+              <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+              Debe seleccionar una semana
+            </p>
+          </div>
+        </div>
+
+        <div class="bs-container-input">
+            <label>Ajustes</label>
+            <div class="input__icon">
+                <select [ngClass]="{
+                    error:
+                      formControl['ajustes'].invalid &&
+                      formControl['ajustes'].touched
+                  }"
+                  class="bs-input-border"
+                  formControlName="ajustes"
+                  (change)="cambiarAjuste($event)"
+                >
+                    <option value="">Seleccione</option>
+                    <option value="1">Descuento eventual</option>
+                    <option value="2">Descuento venta online</option>
+                    <option value="3">Descuento garantía</option>
+                </select>
+            </div>
+            <div
+            *ngIf="
+              formControl['ajustes'].invalid && formControl['ajustes'].touched
+            "
+            class="bs-container__error"
+          >
+            <p class="bs-input-error-message">
+              <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+              Debe seleccionar un ajuste
+            </p>
+          </div>
+        </div>
+
+        <div class="bs-container-input bs-container-saldo" *ngIf="!ver"><!-- onchange="cambiarFlag()" -->
+            <div class="input__icon">
+                <p class="bs-parrafo-saldo">Saldo garantía <span class="bs-span-saldo">{{saldoGarantia  | currency:'':'symbol':'3.0'}}</span></p>
+            </div>
+        </div>
+
+        <div class="bs-container-input bs-container-item">
+            <div class="bs-item">
+                <label *ngIf="ver">Fijar monto</label>
+                <label *ngIf="!ver">Descuento garantía</label>
+            </div>
+            <div class="bs-item">
+                <div class="input__icon mt-10 mb-10">
+                    <input 
+                    class="bs-input-border" 
+                    min="1" pattern="^[0-9]+"
+                    type="number" name="fijarMonto" placeholder="10000" formControlName="fijarMonto"
+                        [ngClass]="{
+                          error: formControl['fijarMonto'].invalid && 
+                          formControl['fijarMonto'].touched}"
+                    >
+                </div>
+            </div>
+        </div>
+        <div *ngIf="
+            formControl['fijarMonto'].invalid && formControl['fijarMonto'].touched" 
+            class="bs-container__error">
+            <p class="bs-input-error-message">
+            <i-feather class="icon__error" name="alert-triangle"></i-feather>
+            Debe ingresar un monto
+            </p>
+        </div>
+
+        <div class="bs-form__actions">
+            <a class="bs-button bs-button-secondary" [routerLink]="['/reglas']">Volver</a>
+            <button class="bs-button bs-button-primary" (click)="showModal()">
+                Guardar
+            </button>
+        </div>
+
+  </form>
+</div>
+

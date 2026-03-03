@@ -1,0 +1,35 @@
+<div class="container__card">
+  <div
+    class="card__text"
+    [ngClass]="{ 'text-inactive': !usuario.idEstadoUsuario }"
+  >
+    <h3 class="font-bold">
+      {{ usuario.nombre }} {{ usuario.apPaterno }} {{ usuario.apMaterno }}
+    </h3>
+    <h3>{{ usuario.cargo }}</h3>
+    <p>{{ usuario.email }}</p>
+  </div>
+  <div class="card__actions">
+    <div
+      class="actions__status"
+      [ngClass]="{ active: usuario.idEstadoUsuario }"
+    >
+      <span>{{ usuario.estado }}</span>
+      <i-feather
+        *ngIf="usuario.idEstadoUsuario"
+        class="icon"
+        name="check-circle"
+      ></i-feather>
+      <i-feather
+        *ngIf="!usuario.idEstadoUsuario"
+        class="icon"
+        name="x-circle"
+      ></i-feather>
+    </div>
+    <a
+      [routerLink]="['/usuarios/editar-usuario', usuario.id]"
+      class="bs-button bs-button-primary"
+      >Editar</a
+    >
+  </div>
+</div>

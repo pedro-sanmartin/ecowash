@@ -1,0 +1,44 @@
+<div class="background__auth">
+    <div class="container">
+        <div class="card-login">
+            <div class="card-login__img">
+                <img width="300" height="150" src="../../../assets/images/logo-ecowashcar.svg" alt="Logo" />
+            </div>
+            <form class="card-login__form" [formGroup]="form" (ngSubmit)="login()">
+                <div class="bs-container-input">
+                    <label>Usuario</label>
+                    <div class="input__icon">
+                        <input class="bs-input" type="text" formControlName="email" placeholder="correo electrónico" style="font-size:16px;" />
+                        <i-feather class="icon-login" name="user"></i-feather>
+                    </div>
+                    <div *ngIf="email.invalid && email.touched" class="bs-container__error">
+                        <p class="bs-input-error-message text-white">
+                            <i-feather class="icon__error" name="alert-triangle"></i-feather>
+                            Debe ingresar un correo válido
+                        </p>
+                    </div>
+                </div>
+                <div class="bs-container-input">
+                    <label>Contraseña</label>
+                    <div class="input__icon">
+                        <input class="bs-input" [type]="!showPass?'password':'text'" formControlName="password" placeholder="*******" style="font-size:16px;" />
+                        <i-feather *ngIf="!showPass" class="icon-login" name="eye" (click)="showPassword()"></i-feather>
+                        <i-feather *ngIf="showPass" class="icon-login" name="eye-off" (click)="showPassword()"></i-feather>
+                    </div>
+                    <div *ngIf="password.invalid && password.touched" class="bs-container__error">
+                        <p class="bs-input-error-message text-white">
+                            <i-feather class="icon__error" name="alert-triangle"></i-feather>
+                            Debe ingresar una contraseña
+                        </p>
+                    </div>
+                </div>
+                <a [routerLink]="['/recuperar-contrasena']" class="bs-link">
+          Recuperar contraseña
+        </a>
+                <div class="card-login__button">
+                    <button class="bs-button bs-button-secondary">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<app-header [options]="headerOptions"></app-header>
+
+<div class="container">
+    <form 
+    class="planMensual__form bs-form"
+    [formGroup]="form"
+    >
+
+        <div class="bs-container-input">
+            <label>Local</label>
+            <div class="input__icon">
+              <select
+                [ngClass]="{
+                  error:
+                    formControl['idLocal'].invalid &&
+                    formControl['idLocal'].touched
+                }"
+                class="bs-input-border"
+                formControlName="idLocal"
+              >
+                <option value="">Seleccione</option>
+                <option *ngFor="let item of locales" [value]="item.id">
+                  {{ item.nombre }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+          *ngIf="
+            formControl['idLocal'].invalid && formControl['idLocal'].touched
+          "
+          class="bs-container__error errorNomLoc"
+        >
+          <p class="bs-input-error-message">
+            <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+            Debe seleccionar un local
+          </p>
+        </div>
+
+        <div class="bs-container-input">
+            <label>Categoría</label>
+            <div class="input__icon">
+              <select
+                [ngClass]="{
+                  error:
+                    formControl['categoria'].invalid &&
+                    formControl['categoria'].touched
+                }"
+                class="bs-input-border"
+                formControlName="categoria"
+              >
+                <option value="">Seleccione</option>
+                <option >
+                  Categoria 1
+                </option>
+              </select>
+            </div>
+            <div
+              *ngIf="
+                formControl['categoria'].invalid && formControl['categoria'].touched
+              "
+              class="bs-container__error"
+            >
+              <p class="bs-input-error-message">
+                <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+                Debe seleccionar un operador
+              </p>
+            </div>
+          </div>
+
+          <div class="bs-container-input">
+            <label>Agregar comentario</label>
+            
+            <div class="input__icon">
+                <textarea 
+                class="bs-textarea-border" 
+                name="comentario" 
+                formControlName="comentario" 
+                rows="10"
+                cols="100" 
+                placeholder="Escribe tu comentario"
+                [ngClass]="{
+                    error: formControl['comentario'].invalid && 
+                    formControl['comentario'].touched}">
+                </textarea>
+            </div>
+            <div *ngIf="
+            formControl['comentario'].invalid && formControl['comentario'].touched" 
+            class="bs-container__error">
+            <p class="bs-input-error-message">
+              <i-feather class="icon__error" name="alert-triangle"></i-feather>
+              Debe ingresar un comentario
+            </p>
+            </div>
+          </div>
+
+        <div class="bs-form__actions">
+            <button class="bs-button bs-button-primary" (click)="showModal()">
+                Enviar
+            </button>
+        </div>
+
+  </form>
+</div>

@@ -1,0 +1,23 @@
+<app-header [options]="headerOptions"></app-header>
+<div class="background__auth">
+
+  <div class="container">
+    <form class="planMensual__form bs-form" [formGroup]="form">
+      <div class="container__main">
+        <div class="bs-container-input">
+            <div class="input__icon">
+              <select class="bs-input" (change)="cambiarUrl($event)" formControlName="tipoRegla">
+                <option value="">Seleccione</option>
+                <option value="1">Plan mensual</option>
+                <option value="2">Cierre mensual</option>
+                <option value="3">Ajustes</option>
+              </select>
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+
+

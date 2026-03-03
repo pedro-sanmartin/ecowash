@@ -1,0 +1,256 @@
+<app-header [options]="headerOptions"></app-header>
+
+<div class="container">
+    <form class="planMensual__form bs-form" [formGroup]="form">
+        <div class="bs-container-input divNomLoc">
+            <label>Nombre local</label>
+            <div class="input__icon inputNomLoc">
+              <select
+                [ngClass]="{
+                  error:
+                    formControl['idLocal'].invalid &&
+                    formControl['idLocal'].touched
+                }"
+                class="bs-input-border"
+                formControlName="idLocal"
+              >
+                <option value="">Seleccione</option>
+                <option *ngFor="let item of locales" [value]="item.id">
+                  {{ item.nombre }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+          *ngIf="
+            formControl['idLocal'].invalid && formControl['idLocal'].touched
+          "
+          class="bs-container__error errorNomLoc"
+        >
+          <p class="bs-input-error-message">
+            <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+            Debe seleccionar un local
+          </p>
+        </div>
+
+        <div class="bs-container-input">
+            <label>Operador</label>
+            <div class="input__icon">
+              <select
+                [ngClass]="{
+                  error:
+                    formControl['idOperador'].invalid &&
+                    formControl['idOperador'].touched
+                }"
+                class="bs-input-border"
+                formControlName="idOperador"
+              >
+                <option value="">Seleccione</option>
+                <option *ngFor="let item of operadores" [value]="item.id">
+                  {{ item.nombre }}
+                </option>
+              </select>
+            </div>
+            <div
+              *ngIf="
+                formControl['idOperador'].invalid && formControl['idOperador'].touched
+              "
+              class="bs-container__error"
+            >
+              <p class="bs-input-error-message">
+                <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+                Debe seleccionar un operador
+              </p>
+            </div>
+          </div>
+
+        <div class="bs-container-input">
+            <label>Plan mensual</label>
+            <div class="input__icon">
+                <select [ngClass]="{
+                    error:
+                      formControl['planMensual'].invalid &&
+                      formControl['planMensual'].touched
+                  }"
+                  class="bs-input-border"
+                  formControlName="planMensual"
+                >
+                    <option value="">Seleccione</option>
+                    <option >Agosto</option>
+                    <option >Septiembre</option>
+                    <option >Octubre</option>
+                </select>
+            </div>
+            <div
+            *ngIf="
+              formControl['planMensual'].invalid && formControl['planMensual'].touched
+            "
+            class="bs-container__error"
+          >
+            <p class="bs-input-error-message">
+              <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+              Debe seleccionar un mes
+            </p>
+          </div>
+        </div>
+
+        <div class="bs-container-input">
+            <label>Forma de trabajo</label>
+            <div class="input__icon">
+                <select [ngClass]="{
+                    error:
+                      formControl['formaTrabajo'].invalid &&
+                      formControl['formaTrabajo'].touched
+                  }"
+                  class="bs-input-border"
+                  formControlName="formaTrabajo"
+                >
+                    <option value="">Seleccione</option>
+                    <option >Lunes a viernes</option>
+                    <option >Lunes a sábado</option>
+                    <option >Part time</option>
+                </select>
+            </div>
+            <div
+            *ngIf="
+              formControl['formaTrabajo'].invalid && formControl['formaTrabajo'].touched
+            "
+            class="bs-container__error"
+          >
+            <p class="bs-input-error-message">
+              <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+              Debe seleccionar una forma de trabajo
+            </p>
+          </div>
+        </div>
+
+        <div class="bs-container-input div2Col">
+
+            <div class="divA">
+                <label>Fecha inicio</label>
+                <div class="input__icon mt-10 mb-10">
+                    <input
+                    class="bs-input-border"
+                    [ngClass]="{
+                        error:
+                        formControl['fechaInicio'].invalid &&
+                        formControl['fechaInicio'].touched
+                    }"
+                    type="date"
+                    formControlName="fechaInicio"
+                    name="fechaInicio" 
+                    max="2022-12-31"
+                    />
+                </div>
+                <div
+                *ngIf="
+                  formControl['fechaInicio'].invalid && formControl['fechaInicio'].touched
+                "
+                class="bs-container__error"
+                >
+                <p class="bs-input-error-message">
+                  <i-feather class="icon__error" name="alert-triangle"></i-feather>
+                  Debe ingresar una fecha de inicio
+                </p>
+              </div>
+            </div>
+
+            <div class="divB">
+                <label>Fecha término</label>
+                <div class="input__icon mt-10 mb-10">
+                    <input
+                    class="bs-input-border"
+                    [ngClass]="{
+                        error:
+                        formControl['fechaTermino'].invalid &&
+                        formControl['fechaTermino'].touched
+                    }"
+                    type="date"
+                    formControlName="fechaTermino"
+                    name="fechaTermino" 
+                    max="2022-12-31"
+                    />
+                </div>
+                <div
+                *ngIf="
+                  formControl['fechaTermino'].invalid && formControl['fechaTermino'].touched
+                "
+                class="bs-container__error"
+              >
+                <p class="bs-input-error-message">
+                  <i-feather class="icon__error" name="alert-triangle"></i-feather>
+                  Debe ingresar una fecha de término
+                </p>
+              </div>
+            </div>
+        </div>
+
+        <div class="bs-container-input div2Col">
+            <div class="divA">
+                <label>Valor plan mensual</label>
+                <div class="input__icon mt-10 mb-10">
+                    <!-- [disabled]="true" -->
+                    <input
+                    [readonly]="true"
+                    class="bs-input-border" type="" name="valorMensual" placeholder="100000" formControlName="valorMensual"
+                    [ngClass]="{
+                      error: 
+                      formControl['valorMensual'].invalid && 
+                      formControl['valorMensual'].touched}"
+                    >
+                </div>
+<!--                 <div *ngIf="
+                        formControl['valorMensual'].invalid && formControl['valorMensual'].touched" 
+                        class="bs-container__error">
+                    <p class="bs-input-error-message">
+                      <i-feather class="icon__error" name="alert-triangle"></i-feather>
+                      Debe ingresar un valor mensual
+                    </p>
+                </div> -->
+            </div>
+            <div class="divB">
+                <label>Valor diario</label>
+                <div class="input__icon mt-10 mb-10">
+                    <input
+                    class="bs-input-border" 
+                    min="1" pattern="^[0-9]+"
+                    type="number" name="valorDiario" placeholder="10000" formControlName="valorDiario"
+                        [ngClass]="{
+                          error: formControl['valorDiario'].invalid && 
+                          formControl['valorDiario'].touched}"
+                    >
+                </div>
+                <div *ngIf="
+                formControl['valorDiario'].invalid && formControl['valorDiario'].touched" 
+                class="bs-container__error">
+                <p class="bs-input-error-message">
+                  <i-feather class="icon__error" name="alert-triangle"></i-feather>
+                  Debe ingresar un valor diario
+                </p>
+              </div>
+            </div>
+        </div>
+
+        <div class="bs-container-input">
+            <label>Días NO laborales</label>
+            <ng-multiselect-dropdown
+                class="bs-multiselect-border"
+                [placeholder]="'Seleccionar día'"
+                [settings]="dropdownSettings"
+                [data]="dropdownList"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                >
+            </ng-multiselect-dropdown>
+          </div>
+
+        <div class="bs-form__actions">
+            <a class="bs-button bs-button-secondary" [routerLink]="['/reglas']">Volver</a>
+            <button class="bs-button bs-button-primary" (click)="showModal()">
+                Guardar
+            </button>
+        </div>
+
+    </form>
+</div>
+

@@ -1,0 +1,74 @@
+<app-header [options]="headerOptions"></app-header>
+<app-submenu [submenu]="submenu"></app-submenu>
+
+<div class="container">
+    <form 
+    class="planMensual__form bs-form"
+    [formGroup]="form"
+    >
+    <div class="bs-container-input w_33">
+        <label>Seleccione mes</label>
+        <select
+          [ngClass]="{
+            error: formControl['meses'].invalid && formControl['meses'].touched
+          }"
+          class="bs-input-green"
+          formControlName="meses"
+          >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of listaMeses" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+    </div>
+    <div
+      *ngIf="formControl['meses'].invalid && formControl['meses'].touched"
+      class="bs-container__error"
+      >
+      <p class="bs-input-error-message">
+        <i-feather class="icon__error" name="alert-triangle"></i-feather>
+        Debe seleccionar un mes
+      </p>
+    </div>
+
+    <div class="bs-fechas-InfCon">
+      <p class="parrafoFecha">Mes:<span class="spanFecha"> 08/2022</span></p>
+      <p class="parrafoFecha">Fecha de corte:<span class="spanFecha"> 09/08/2022</span></p>
+    </div>
+
+    <div class="bs-tabla-infCon">
+      <table class="tablaInfCon">
+        <caption></caption>
+          <tr>
+            <th></th>
+          </tr>
+          <tr>            
+            <td class="tdTablaInfCon_A tdIzquierda">Ventas presupuestadas</td>            
+            <td class="tdTablaInfCon_A tdDerecha"><strong>$40.000.000</strong></td>             
+          </tr>
+        
+          <tr>             
+            <td class="tdTablaInfCon_B tdIzquierda">Ventas acumuladas</td>             
+            <td class="tdTablaInfCon_B tdDerecha">$30.000.000</td>             
+          </tr>
+        
+          <tr>            
+            <td class="tdTablaInfCon_A tdIzquierda">Cumplimiento</td>            
+            <td class="tdTablaInfCon_A tdDerecha">75%</td>            
+          </tr>
+
+          <tr>             
+            <td class="tdTablaInfCon_B tdIzquierda">Saldo ventas (10%)</td>             
+            <td class="tdTablaInfCon_B tdDerecha">$10.000.000</td>             
+          </tr>
+      </table>
+    </div>
+
+    <div class="bs-form__actions">
+      <button class="bs-button bs-button-primary botonDescargaExcel">
+          Descargar Excel <img class="imgFileExcel" src="../../../assets/images/file-excel.svg" alt="Icono excel" />
+      </button>
+  </div>
+
+  </form>
+</div>

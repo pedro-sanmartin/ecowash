@@ -1,0 +1,11 @@
+.divNomLoc {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .filaRadioButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,0 +1,28 @@
+.mb-5{
+    margin-bottom: 5px;
+}
+.mb-25{
+    margin-bottom: 25px;
+}
+
+.div2Col{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: initial;
+    gap: 0.5rem;
+}
+
+.divA {
+    width: 50%;
+}
+
+.divB {
+    width: 50%;
+}
+.mt-10{
+    margin-top: 10px;
+}
+
+.mb-10{
+    margin-bottom: 10px;
+}

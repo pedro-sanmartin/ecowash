@@ -1,0 +1,43 @@
+/* .bs-container-item{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+.div2Col{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: initial;
+    gap: 0.5rem;
+}
+
+.divNomLoc{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 8px 0;
+}
+
+.inputNomLoc{
+    width: 70%;
+}
+
+.divA {
+    width: 50%;
+}
+
+.divB {
+    width: 50%;
+}
+.mt-10{
+    margin-top: 10px;
+}
+
+.mb-10{
+    margin-bottom: 10px;
+}
+
+.errorNomLoc{
+    margin-bottom: 10px;
+}
+    

@@ -1,0 +1,42 @@
+<div class="background__auth">
+  <div class="container">
+    <div class="card-contrasena">
+      <h1>Recuperar contraseña</h1>
+
+      <form
+        class="card-contrasena__form"
+        [formGroup]="form"
+        (ngSubmit)="recuperarContrasena()"
+      >
+        <div>
+          <div class="bs-container-input">
+            <label>Correo electrónico</label>
+            <input
+              class="bs-input"
+              type="text"
+              formControlName="email"
+              placeholder="Correo@ejemplo.cl"
+            />
+            <div
+              *ngIf="email.invalid && email.touched"
+              class="bs-container__error"
+            >
+              <p class="bs-input-error-message text-white">
+                <i-feather class="icon__error" name="alert-triangle"></i-feather
+                >Debe ingresar un correo válido
+              </p>
+            </div>
+          </div>
+
+          <p class="color-white text-center">
+            Ingresa tu correo para recuperar contraseña
+          </p>
+        </div>
+
+        <div class="card-contrasena__button">
+          <button class="bs-button bs-button-secondary">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

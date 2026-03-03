@@ -1,0 +1,55 @@
+.divNomLoc {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.inputNomLoc {
+  width: 67%;
+}
+
+.inputMeses {
+  width: 33%;
+}
+
+.file-select {
+  position: relative;
+  display: inline-block;
+}
+
+.file-select::before {
+  background-color: var(--bs-white);
+  color: var(--bs-green);
+  border: 1px solid var(--bs-light-green);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Seleccionar";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.file-select input[type="file"] {
+  opacity: 0;
+  display: inline-block;
+}
+
+#src-file1::before {
+  content: "Cargar";
+}
+
+.textoCentrado {
+  text-align: center;
+}
+
+.ulTabs {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

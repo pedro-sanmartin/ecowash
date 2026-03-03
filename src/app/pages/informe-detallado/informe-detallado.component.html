@@ -1,0 +1,88 @@
+<app-header [options]="headerOptions"></app-header>
+<app-submenu [submenu]="submenu"></app-submenu>
+
+<div class="container">
+    <form 
+    class="informeDetallado__form bs-form"
+    [formGroup]="form"
+    >
+        <div class="bs-form__actions mb-5">
+            <button class="bs-button bs-button-primary" (click)="openDialog()">
+                Filtrar
+            </button>
+        </div>
+        <p class="bs-parrafo-bottom-modal mb-25">Aplica filtros para generar un reporte</p>
+
+        <div class="bs-fechas-InfDet">
+            <p class="parrafoFecha">Mes:<span class="spanFecha"> 08/2022</span></p>
+            <p class="parrafoFecha">Fecha de corte:<span class="spanFecha"> 09/08/2022</span></p>
+        </div>
+
+        <div class="bs-tabla-infDet">
+            <table class="tablaInfDet">
+              <caption></caption>
+                <tr>
+                  <th class="cabeceraTablainfDet tdIzquierda">Jefe de venta</th>            
+                  <th class="cabeceraTablainfDet tdCentro">Local</th>             
+                  <th>
+                    <select
+                    class="bs-input-green"
+                    formControlName="ventas"
+                  >
+                    <option value="">Seleccione</option>
+                    <option>Ventas acumuladas</option>
+                    <option>Ventas presupuesto</option>
+                    <option>Cumplimiento %</option>
+                    <option>Saldo ventas $</option>
+                    <option>Saldo cumplimiento %</option>
+                  </select>
+                  </th>            
+                </tr>
+              
+                <tr>            
+                  <td class="tdTablaInfDet_A tdIzquierda">JP</td>            
+                  <td class="tdTablaInfDet_A tdCentro">25</td>            
+                  <td class="tdTablaInfDet_A tdDerecha">$250.000</td>             
+                </tr>
+              
+                <tr>             
+                  <td class="tdTablaInfDet_B tdIzquierda">JP</td>             
+                  <td class="tdTablaInfDet_B tdCentro">134</td>            
+                  <td class="tdTablaInfDet_B tdDerecha">$200.000</td>             
+                </tr>
+              
+                <tr>            
+                  <td class="tdTablaInfDet_A tdIzquierda">JP</td>            
+                  <td class="tdTablaInfDet_A tdCentro">145</td>            
+                  <td class="tdTablaInfDet_A tdDerecha">$350.000</td>            
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <hr class="hrTablaInfDet">
+                    </td>
+                </tr>
+
+                <tr class="trTotalTablaInfDet">            
+                    <td class="tdBold tdIzquierda">Total:</td>                     
+                    <td class="tdBold tdDerecha" colspan="2">$800.000</td>            
+                  </tr>
+            </table>
+        </div>
+
+        <div class="bs-form__actions">
+            <button class="bs-button bs-button-primary botonDescargaExcel">
+                Descargar Excel <img class="imgFileExcel" src="../../../assets/images/file-excel.svg" alt="Icono excel"/><!-- <i-feather name="file-text"></i-feather> -->
+            </button>
+        </div>
+
+<!--         <div>
+            <mat-spinner></mat-spinner>
+        </div> -->
+        
+
+
+  </form>
+</div>
+
+

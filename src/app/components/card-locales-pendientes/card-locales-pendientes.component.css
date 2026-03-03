@@ -1,0 +1,87 @@
+.container__card {
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    background: var(--bs-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    gap: 2rem;
+    color: var(--bs-body-black);
+    padding: 0.5rem;
+    position: relative;
+    height: 156px;
+    margin-bottom: 25px;
+}
+
+.card__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.card__text h3 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.card__text h3.font-bold {
+    font-weight: 700;
+}
+
+.text-inactive {
+    color: var(--bs-text-disabled);
+}
+
+.actions__status .icon {
+    width: 14px;
+    padding-top: 0.3rem;
+}
+
+.container__text {
+    display: flex;
+    justify-content: flex-start;
+    gap: .5rem;
+}
+
+.actions__status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 16px;
+    gap: 0.5rem;
+    height: 20px;
+    width: 120px;
+    font-family: var(--bs-font);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.actions__evaluacion {
+    border: 1px solid var(--bs-blue);
+    background-color: var(--bs-status-blue);
+    color: var(--bs-blue);
+}
+
+.actions__rechazado {
+    border: 1px solid var(--bs-red);
+    background-color: var(--bs-status-red);
+    color: var(--bs-red);
+}
+
+.actions__aprobado {
+    border: 1px solid var(--bs-green);
+    background-color: var(--bs-status-green);
+    color: var(--bs-green);
+}
+
+.iconoLocPen {
+    width: 14px;
+}

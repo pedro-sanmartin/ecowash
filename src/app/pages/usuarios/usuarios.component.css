@@ -1,0 +1,31 @@
+.container__main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-gap: 1.3rem;
+    gap: 1.3rem;
+    padding: 2rem 0 8rem 0;
+}
+
+.botonFiltrarUsuarios{
+    width: 100%;
+    max-width: 400px;
+}
+
+.parrafofiltrarUsuarios{
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #757575;
+    position: relative;
+    right: 90px;
+}
+
+
+@media (min-width: 768px) {
+    .container__main {
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    }
+}

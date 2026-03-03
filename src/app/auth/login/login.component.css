@@ -1,0 +1,34 @@
+.card-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 100vh;
+    gap: 2rem;
+    padding: 4rem 0;
+    background-color: var(--bs-green);
+}
+
+.card-login__button {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-login__form {
+    width: 100%;
+    max-width: 296px;
+}
+
+.icon-login {
+    position: absolute;
+    color: var(--bs-green);
+    width: 18px;
+    top: 30%;
+    right: 5%;
+}
+
+.input__icon {
+    position: relative;
+}

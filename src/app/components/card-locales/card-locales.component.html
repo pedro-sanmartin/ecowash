@@ -1,0 +1,27 @@
+<div class="container__card">
+    <div class="card__text" [ngClass]="{ 'text-inactive': !local.idEstadoLocal }">
+        <div class="container__text">
+            <h3 class="font-bold">Local:</h3>
+            <h3>{{ local.nombre }}</h3>
+        </div>
+        <div class="container__text">
+            <h3 class="font-bold">Código:</h3>
+            <h3>{{ local.codigo }}</h3>
+        </div>
+        <div class="container__text">
+            <h3 class="font-bold">Operador:</h3>
+            <h3>{{ local.nombreOperador }}</h3>
+        </div>
+        <div class="container__text">
+            <h3 class="font-bold">Jefe de ventas:</h3>
+            <h3>{{ local.nombreJefeVentas }}</h3>
+        </div>
+        <div class="actions__status" [ngClass]="{ active: local.idEstadoLocal }">
+            <span>{{ local.idEstadoLocal | status }}</span>
+            <i-feather *ngIf="local.idEstadoLocal" class="icon" name="check-circle"></i-feather>
+            <i-feather *ngIf="!local.idEstadoLocal" class="icon" name="x-circle"></i-feather>
+        </div>
+        <a [routerLink]="['/locales/editar-local', local.id]" class="bs-button bs-button-primary">Modificar</a
+          >
+    </div>
+</div>

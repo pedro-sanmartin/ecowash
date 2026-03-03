@@ -1,0 +1,128 @@
+<app-header [options]="headerOptions"></app-header>
+<div class="container">
+  <div class="">
+    <form
+      class="servicio__form bs-form"
+      [formGroup]="form"
+      (ngSubmit)="guardarServicio()"
+    >
+      <div class="bs-container-input">
+        <label>Nombre servicio <span class="color-red">*</span></label>
+        <div class="input__icon">
+          <input
+            [ngClass]="{
+              error: nombre.invalid && nombre.touched
+            }"
+            maxlength="100"
+            class="bs-input-border"
+            type="text"
+            formControlName="nombre"
+            placeholder="nombre servicio"
+          />
+        </div>
+        <div
+          *ngIf="nombre.invalid && nombre.touched"
+          class="bs-container__error"
+        >
+          <p class="bs-input-error-message">
+            <i-feather class="icon__error" name="alert-triangle"></i-feather>
+            Debe ingresar un nombre
+          </p>
+        </div>
+      </div>
+      <div class="bs-container-input">
+        <label>Código <span class="color-red">*</span></label>
+        <div class="input__icon">
+          <input
+            [ngClass]="{
+              error: codigo.invalid && codigo.touched
+            }"
+            maxlength="20"
+            class="bs-input-border"
+            type="text"
+            formControlName="codigo"
+            placeholder="código servicio"
+          />
+        </div>
+        <div
+          *ngIf="codigo.invalid && codigo.touched"
+          class="bs-container__error"
+        >
+          <p class="bs-input-error-message">
+            <i-feather class="icon__error" name="alert-triangle"></i-feather>
+            Debe ingresar un código
+          </p>
+        </div>
+      </div>
+      <div class="bs-container-input">
+        <label>Precio <span class="color-red">*</span></label>
+        <div class="input__icon" style="position: relative">
+          <input
+            (keyup)="ajusteMonto($event)"
+            style="padding-left: 1.5rem"
+            [ngClass]="{
+              error: precio.invalid && precio.touched
+            }"
+            min="1"
+            max="99999999"
+            class="bs-input-border"
+            type="text"
+            formControlName="precio"
+            placeholder="precio"
+          />
+          <i style="position: absolute; top: 8px; left: 10px">$</i>
+        </div>
+        <div
+          *ngIf="precio.invalid && precio.touched"
+          class="bs-container__error"
+        >
+          <p class="bs-input-error-message">
+            <i-feather class="icon__error" name="alert-triangle"></i-feather>
+            Debe ingresar un precio
+          </p>
+        </div>
+      </div>
+      <div class="bs-container-input">
+        <label>Estado</label>
+        <div class="container__radio">
+          <div class="input__radio">
+            <input
+              class="custom-control-input"
+              id="activo"
+              type="radio"
+              name="idEstado"
+              value="1"
+              formControlName="idEstado"
+            /><label class="custom-control-label" for="activo">Activo</label>
+          </div>
+          <div class="input__radio">
+            <input
+              class="custom-control-input"
+              id="inactivo"
+              type="radio"
+              name="idEstado"
+              value="0"
+              formControlName="idEstado"
+            /><label class="custom-control-label" for="inactivo"
+              >Inactivo</label
+            >
+          </div>
+        </div>
+      </div>
+      <div class="bs-form__actions">
+        <a class="bs-button bs-button-secondary" [routerLink]="['/servicios']"
+          >Volver</a
+        >
+        <button *ngIf="!isEditar" class="bs-button bs-button-primary">
+          Crear
+        </button>
+        <button *ngIf="isEditar" class="bs-button bs-button-primary">
+          Guardar
+        </button>
+      </div>
+      <div class="bs-footer-message">
+        <label>* Campos obligatorios</label>
+      </div>
+    </form>
+  </div>
+</div>

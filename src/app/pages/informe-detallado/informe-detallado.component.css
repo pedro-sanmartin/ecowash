@@ -1,0 +1,81 @@
+.mb-5{
+    margin-bottom: 5px;
+}
+.mb-25{
+    margin-bottom: 25px;
+}
+
+.bs-fechas-InfDet{
+    margin-top: 25px;
+}
+
+.parrafoFecha{
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.spanFecha{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.bs-tabla-infDet{
+    margin-top: 25px;
+}
+
+.tablaInfDet {
+    width: 100%;
+}
+
+.cabeceraTablainfDet {
+    border-bottom: 1px solid #9E9E9E;
+    background-color: #EDEDED;
+}
+
+.tdTablaInfDet_A{
+    height: 36px;
+    background-color: #EDEDED;
+}
+
+.tdTablaInfDet_B{
+    height: 36px;
+    background-color: #E0E0E0;
+}
+
+.tdBold{
+    font-weight: 700;
+}
+
+.tdDerecha{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.tdCentro{
+    text-align: center;
+}
+
+.tdIzquierda{
+    padding-left: 10px;
+    text-align: left;
+}
+
+.trLineaTablaInfDet{
+    margin-top: 15px;
+}
+
+.hrTablaInfDet{
+    border-bottom: 1px solid #D1CFD7;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.botonDescargaExcel{
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.imgFileExcel{
+    width: 15px;
+}

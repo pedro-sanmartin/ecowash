@@ -1,0 +1,32 @@
+<div class="container__card">
+    <div class="card__text">
+        <div class="container__text">
+            <h3 class="font-bold">Local:</h3>
+            <h3>{{ pago.nombreLocal }}</h3>
+        </div>
+        <div class="container__text">
+            <h3 class="font-bold">Monto:</h3>
+            <h3>{{ pago.montoAbono | currency: '$ ':'symbol':'3.0' }}</h3>
+        </div>
+        <div class="container__text">
+            <h3 class="font-bold">Fecha:</h3>
+            <h3>{{ pago.fechaPago | date:'dd-MM-yyyy' }}</h3>
+        </div>
+        <div class="container__text">
+            <h3 class="font-bold">Tipo de abono:</h3>
+            <h3>{{ pago.nombreTipoAbono }}</h3>
+        </div>
+        <div *ngIf="pago.idEstadoAprobacion === 1" class="actions__status actions__evaluacion">
+            <span>{{ pago.estadoAprobacion }}</span>
+            <i-feather class="icon iconoLocPen" name="clock"></i-feather>
+        </div>
+        <div *ngIf="pago.idEstadoAprobacion === 2" class="actions__status actions__aprobado">
+            <span>{{ pago.estadoAprobacion }}</span>
+            <i-feather class="icon iconoLocPen" name="check-circle"></i-feather>
+        </div>
+        <div *ngIf="pago.idEstadoAprobacion === 3" class="actions__status actions__rechazado">
+            <span>{{ pago.estadoAprobacion }}</span>
+            <i-feather class="icon iconoLocPen" name="x-circle"></i-feather>
+        </div>
+    </div>
+</div>

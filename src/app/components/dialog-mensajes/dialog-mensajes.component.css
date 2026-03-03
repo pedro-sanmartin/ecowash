@@ -1,0 +1,44 @@
+.bs_parrafo_titulo_mensaje{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--bs-body-black);
+    text-align: center;
+}
+
+.bs_parrafo_nombre_mensaje{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 5px;
+    color: var(--bs-body-black);
+}
+
+.bs_texto_nombre_mensaje{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--bs-body-black);
+}
+
+.bs_body_mensaje {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button_transparent{
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+    color: var(--bs-green);
+}
+
+.hr_garantia{
+    margin-top: 10px;
+    border-bottom: 1px solid var(--bs-text-disabled);
+}

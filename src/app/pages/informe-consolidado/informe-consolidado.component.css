@@ -1,0 +1,55 @@
+.w_33{
+    width: 33%;
+}
+
+.bs-fechas-InfCon{
+    margin-top: 15px;
+}
+
+.parrafoFecha{
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.spanFecha{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.bs-tabla-infCon{
+    margin-top: 25px;
+}
+
+.tablaInfCon {
+    width: 100%;
+}
+
+.tdTablaInfCon_A{
+    height: 36px;
+    background-color: #EDEDED;
+}
+
+.tdTablaInfCon_B{
+    height: 36px;
+    background-color: #E0E0E0;
+}
+
+.tdIzquierda{
+    padding-left: 10px;
+    text-align: left;
+}
+
+.tdDerecha{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.botonDescargaExcel{
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.imgFileExcel{
+    width: 15px;
+}

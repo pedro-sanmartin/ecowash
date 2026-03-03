@@ -1,0 +1,302 @@
+<app-header [options]="headerOptions"></app-header>
+<app-submenu [submenu]="submenu"></app-submenu>
+
+<div class="container">
+  <form class="pagar__form bs-form" [formGroup]="form" (ngSubmit)="nuevoPago()">
+    <div class="bs-container-input divNomLoc">
+      <div class="input__icon inputMeses">
+        <label class="mb-10">Mes <span class="color-red">*</span></label>
+        <select
+          [ngClass]="{
+            error: formControl['meses'].invalid && formControl['meses'].touched
+          }"
+          class="bs-input-green mt-5"
+          formControlName="meses"
+        >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of listaMeses" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+      <div class="input__icon inputNomLoc">
+        <label class="mb-10">Local <span class="color-red">*</span></label>
+        <select
+          [ngClass]="{
+            error:
+              formControl['idLocal'].invalid && formControl['idLocal'].touched
+          }"
+          class="bs-input-border mt-5"
+          formControlName="idLocal"
+        >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of listaLocales" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      *ngIf="formControl['meses'].invalid && formControl['meses'].touched"
+      class="bs-container__error"
+    >
+      <p class="bs-input-error-message">
+        <i-feather class="icon__error" name="alert-triangle"></i-feather>
+        Debe seleccionar un mes
+      </p>
+    </div>
+    <div
+      *ngIf="formControl['idLocal'].invalid && formControl['idLocal'].touched"
+      class="bs-container__error"
+    >
+      <p class="bs-input-error-message">
+        <i-feather class="icon__error" name="alert-triangle"></i-feather>
+        Debe seleccionar un Local
+      </p>
+    </div>
+
+    <div class="bs-container-input">
+      <label>Fecha de pago <span class="color-red">*</span></label>
+      <div class="input__icon">
+        <input
+          class="bs-input-border"
+          [ngClass]="{
+            error:
+              formControl['fechaPago'].invalid &&
+              formControl['fechaPago'].touched
+          }"
+          type="date"
+          formControlName="fechaPago"
+          name="fechaPago"
+          max="2022-12-31"
+        />
+      </div>
+      <div
+        *ngIf="
+          formControl['fechaPago'].invalid && formControl['fechaPago'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather>
+          Debe ingresar una fecha de pago
+        </p>
+      </div>
+    </div>
+
+    <div class="bs-container-input">
+      <label>Código voucher <span class="color-red">*</span></label>
+      <div class="input__icon">
+        <input
+          class="bs-input-border"
+          min="1"
+          pattern="^[0-9]+"
+          type="number"
+          name="codigoVoucher"
+          placeholder="123456789"
+          formControlName="codigoVoucher"
+          [ngClass]="{
+            error:
+              formControl['codigoVoucher'].invalid &&
+              formControl['codigoVoucher'].touched
+          }"
+        />
+      </div>
+      <div
+        *ngIf="
+          formControl['codigoVoucher'].invalid &&
+          formControl['codigoVoucher'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather>
+          Debe ingresar un código de voucher
+        </p>
+      </div>
+    </div>
+
+    <div class="bs-container-input">
+      <label>Método de pago <span class="color-red">*</span></label>
+      <div class="input__icon">
+        <select
+          [ngClass]="{
+            error:
+              formControl['metodoPago'].invalid &&
+              formControl['metodoPago'].touched
+          }"
+          class="bs-input-border"
+          formControlName="metodoPago"
+        >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of listaMetodosPago" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          formControl['metodoPago'].invalid && formControl['metodoPago'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather>
+          Debe seleccionar un método de pago
+        </p>
+      </div>
+    </div>
+
+    <div class="bs-container-input">
+      <label>Tipo de abono <span class="color-red">*</span></label>
+      <div class="input__icon">
+        <select
+          [ngClass]="{
+            error:
+              formControl['tipoAbono'].invalid &&
+              formControl['tipoAbono'].touched
+          }"
+          class="bs-input-border"
+          formControlName="tipoAbono"
+        >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of listaTiposAbono" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          formControl['tipoAbono'].invalid && formControl['tipoAbono'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather>
+          Debe seleccionar un tipo de abono
+        </p>
+      </div>
+    </div>
+
+    <div class="bs-container-input bs-container-item">
+      <div class="bs-item">
+        <label>Monto <span class="color-red">*</span></label>
+      </div>
+      <div class="bs-item">
+        <div class="input__icon" style="position: relative">
+          <input
+            (keyup)="ajusteMonto($event)"
+            style="padding-left: 1.5rem"
+            class="bs-input-border"
+            maxlength="10"
+            type="text"
+            placeholder="1500000"
+            formControlName="fijarMonto"
+            [ngClass]="{
+              error:
+                formControl['fijarMonto'].invalid &&
+                formControl['fijarMonto'].touched
+            }"
+          />
+          <i style="position: absolute; top: 8px; left: 10px">$</i>
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="
+        formControl['fijarMonto'].invalid && formControl['fijarMonto'].touched
+      "
+      class="bs-container__error"
+    >
+      <p class="bs-input-error-message">
+        <i-feather class="icon__error" name="alert-triangle"></i-feather>
+        Debe ingresar un monto
+      </p>
+    </div>
+
+    <div class="bs-container-input">
+      <label class="textoCentrado"
+        >Subir comprobante de pago <span class="color-red">*</span></label
+      >
+      <p *ngIf="isFilePago">{{ fileNamePago }}</p>
+      <div class="input__icon file-select" id="src-file1">
+        <input
+          class="bs-input"
+          type="file"
+          name="comprobantePago"
+          aria-label="Archivo"
+          accept="image/png,image/jpeg"
+          placeholder=""
+          formControlName="comprobantePago"
+          (change)="obtenerImagenPago($event)"
+          [ngClass]="{
+            error:
+              formControl['comprobantePago'].invalid &&
+              (formControl['comprobantePago'].touched ||
+                formControl['comprobantePago'].dirty)
+          }"
+        />
+      </div>
+
+      <div
+        *ngIf="
+          formControl['comprobantePago'].invalid &&
+          (formControl['comprobantePago'].touched ||
+            formControl['comprobantePago'].dirty)
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather>
+          Debe subir un comprobante de pago en formato jpg o png
+        </p>
+      </div>
+    </div>
+
+    <div class="bs-container-input">
+      <label class="textoCentrado"
+        >Carga de archivos de ventas <span class="color-red">*</span></label
+      >
+      <p *ngIf="isFileVenta">{{ fileNameVenta }}</p>
+      <div class="input__icon file-select" id="src-file1">
+        <input
+          class="bs-input"
+          type="file"
+          name="archivoVentas"
+          aria-label="Archivo"
+          accept="image/png,image/jpeg"
+          placeholder=""
+          formControlName="archivoVentas"
+          (change)="obtenerImagenVenta($event)"
+          [ngClass]="{
+            error:
+              formControl['archivoVentas'].invalid &&
+              (formControl['archivoVentas'].touched ||
+                formControl['archivoVentas'].dirty)
+          }"
+        />
+      </div>
+
+      <div
+        *ngIf="
+          formControl['archivoVentas'].invalid &&
+          (formControl['archivoVentas'].touched ||
+            formControl['archivoVentas'].dirty)
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather>
+          Debe subir un archivo de ventas en formato xls o xlsx
+        </p>
+      </div>
+    </div>
+
+    <div class="bs-form__actions">
+      <button class="bs-button bs-button-primary">Realizar pago</button>
+    </div>
+    <div class="bs-footer-message">
+      <label>* Campos obligatorios</label>
+    </div>
+  </form>
+</div>

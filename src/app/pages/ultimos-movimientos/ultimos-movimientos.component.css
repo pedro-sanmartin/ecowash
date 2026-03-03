@@ -1,0 +1,96 @@
+.bs-filtros-abonos-cargos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 15px;
+    margin-top: 25px;
+}
+.actions__status {
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 2px 8px;
+    gap: 0.2rem;
+    height: 20px;
+    width: 80px;
+    background: var(--bs-button);
+    border: 1px solid var(--bs-grey);
+    margin: .3rem 0;
+}
+
+.actions__status .icon {
+    width: 14px;
+}
+
+.hr_garantia{
+    margin-top: 25px;
+    border-bottom: 1px solid var(--bs-text-disabled);
+}
+
+.bs-button-filtros {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2px 16px;
+    line-height: 14px;
+    gap: 0.5rem;
+    height: 20px;
+    font-family: var(--bs-font);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 20px;
+    border: 1px solid #C2C2C2;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: default;
+    background-color: #ffffff;
+    color: #757575;
+}
+
+.bs-button-filtros-active {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2px 16px;
+    line-height: 14px;
+    gap: 0.5rem;
+    height: 20px;
+    font-family: var(--bs-font);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 20px;
+    border: 1px solid var(--bs-tag-green);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: default;
+    background-color: #ffffff;
+    color: var(--bs-tag-green);
+}
+
+i-feather.icon {
+    width: 14px;
+}
+
+.bs-mes-filtro{
+    margin-top: 25px;
+    text-align: center;
+}
+
+.parrafo-mes-filtro{
+    font-size: 20px;
+    font-weight: 700;
+    color: #757575;
+    line-height: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.icon-mes-filtro{
+    margin-right: 15px;
+}
+
+.bs-card-abono{
+    margin-top: 15px;
+}

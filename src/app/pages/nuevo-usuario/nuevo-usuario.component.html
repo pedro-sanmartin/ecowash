@@ -1,0 +1,155 @@
+<app-header [options]="headerOptions"></app-header>
+
+<div class="container">
+    <form class="usuario__form bs-form" [formGroup]="form" (ngSubmit)="guardarUsuario()">
+        <div class="bs-container-input">
+            <label>Nombre <span class="color-red">*</span></label>
+            <div class="input__icon">
+                <input [ngClass]="{
+            error:
+              formControl['nombre'].invalid && formControl['nombre'].touched
+          }" maxlength="45" class="bs-input-border" type="text" formControlName="nombre" placeholder="Nombre" />
+            </div>
+            <div *ngIf="formControl['nombre'].invalid && formControl['nombre'].touched" class="bs-container__error">
+                <p class="bs-input-error-message">
+                    <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe ingresar un nombre
+                </p>
+            </div>
+        </div>
+        <div class="bs-container-input">
+            <label>Apellido paterno <span class="color-red">*</span></label>
+            <div class="input__icon">
+                <input [ngClass]="{
+            error:
+              formControl['apPaterno'].invalid &&
+              formControl['apPaterno'].touched
+          }" maxlength="45" class="bs-input-border" type="text" formControlName="apPaterno" placeholder="Apellido paterno" />
+            </div>
+            <div *ngIf="
+          formControl['apPaterno'].invalid && formControl['apPaterno'].touched
+        " class="bs-container__error">
+                <p class="bs-input-error-message">
+                    <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe ingresar apellido paterno
+                </p>
+            </div>
+        </div>
+        <div class="bs-container-input">
+            <label>Apellido materno</label>
+            <div class="input__icon">
+                <input maxlength="45" class="bs-input-border" type="text" formControlName="apMaterno" placeholder="Apellido materno" />
+            </div>
+        </div>
+        <div class="bs-container-input">
+            <label>Correo electrónico <span class="color-red">*</span></label>
+            <div class="input__icon">
+                <input [ngClass]="{
+            error: formControl['email'].invalid && formControl['email'].touched
+          }" maxlength="60" class="bs-input-border" type="email" formControlName="email" placeholder="correo@ejemplo.cl" />
+            </div>
+            <div *ngIf="formControl['email'].invalid && formControl['email'].touched" class="bs-container__error">
+                <p class="bs-input-error-message">
+                    <i-feather class="icon__error" name="alert-triangle"></i-feather>
+                    Debe ingresar un correo válido
+                </p>
+            </div>
+        </div>
+        <div class="bs-container-input">
+            <label>Teléfono <span class="color-red">*</span></label>
+            <div class="input__icon">
+                <input [ngClass]="{
+            error:
+              formControl['telefono'].invalid && formControl['telefono'].touched
+          }" min="1" max="99999999999" class="bs-input-border" type="number" formControlName="telefono" placeholder="+56912345678" />
+            </div>
+            <div *ngIf="
+          formControl['telefono'].invalid && formControl['telefono'].touched
+        " class="bs-container__error">
+                <p class="bs-input-error-message">
+                    <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe ingresar teléfono válido
+                </p>
+            </div>
+        </div>
+        <div class="bs-container-input">
+            <label>Rol <span class="color-red">*</span></label>
+            <div class="input__icon">
+                <select [ngClass]="{
+            error: formControl['idRol'].invalid && formControl['idRol'].touched
+          }" class="bs-input-border" formControlName="idRol">
+          <option [selected] value="">[Seleccione un Rol]</option>
+
+          <option *ngFor="let item of roles" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+            </div>
+            <div *ngIf="formControl['idRol'].invalid && formControl['idRol'].touched" class="bs-container__error">
+                <p class="bs-input-error-message">
+                    <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe seleccionar un Rol
+                </p>
+            </div>
+        </div>
+        <div class="bs-container-input">
+            <label>Cargo <span class="color-red">*</span></label>
+            <div class="input__icon">
+                <input [ngClass]="{
+            error: formControl['cargo'].invalid && formControl['cargo'].touched
+          }" class="bs-input-border" type="text" formControlName="cargo" placeholder="Cargo" />
+            </div>
+            <div *ngIf="formControl['cargo'].invalid && formControl['cargo'].touched" class="bs-container__error">
+                <p class="bs-input-error-message">
+                    <i-feather class="icon__error" name="alert-triangle"></i-feather> Debe ingresar teléfono
+                </p>
+            </div>
+        </div>
+        <div class="bs-container-input">
+            <label>Estado <span class="color-red">*</span></label>
+            <div class="container__radio">
+                <div class="input__radio">
+                    <input class="custom-control-input" id="activo" type="radio" name="idEstado" value="1" formControlName="idEstado" /><label class="custom-control-label" for="activo">Activo</label>
+                </div>
+                <div class="input__radio">
+                    <input class="custom-control-input" id="inactivo" type="radio" name="idEstado" value="0" formControlName="idEstado" /><label class="custom-control-label" for="inactivo">Inactivo</label>
+                </div>
+            </div>
+        </div>
+        <div class="bs-container-input">
+            <label>Crear una contraseña <span class="color-red">*</span></label>
+            <div class="input__icon">
+                <input [ngClass]="{
+            error:
+              formControl['password'].invalid && formControl['password'].touched
+          }" class="bs-input-border" type="password" formControlName="password" placeholder="*******" />
+            </div>
+            <div *ngIf="
+          formControl['password'].invalid && formControl['password'].touched
+        " class="bs-container__error">
+                <p class="bs-input-error-message">
+                    <i-feather class="icon__error" name="alert-triangle"></i-feather>Contraseña debe contener más de 8 caracteres, una mayúscula y un número
+                </p>
+            </div>
+        </div>
+        <div class="bs-container-input">
+            <label>Repetir contraseña <span class="color-red">*</span></label>
+            <input [ngClass]="{ error: repitePasswordNoValido }" class="bs-input-border" type="password" formControlName="repitePassword" placeholder="*******" />
+
+            <div *ngIf="repitePasswordNoValido" class="bs-container__error">
+                <p class="bs-input-error-message text-white">
+                    <i-feather class="icon__error" name="alert-triangle"></i-feather>Las contraseñas deben ser iguales
+                </p>
+            </div>
+        </div>
+        <div class="bs-form__actions">
+            <a class="bs-button bs-button-secondary" [routerLink]="['/usuarios']">Volver</a
+      >
+      <button *ngIf="!isEditar" class="bs-button bs-button-primary">
+        Crear
+      </button>
+      <button *ngIf="isEditar" class="bs-button bs-button-primary">
+        Guardar
+      </button>
+    </div>
+    <div class="bs-footer-message">
+      <label>* Campos obligatorios</label>
+    </div>
+  </form>
+</div>

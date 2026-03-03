@@ -1,0 +1,25 @@
+.card-contrasena {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.card-contrasena__button {
+    justify-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-contrasena__form {
+    width: 100%;
+    min-height: 500px;
+    max-width: 296px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

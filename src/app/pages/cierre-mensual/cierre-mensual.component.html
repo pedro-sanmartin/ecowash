@@ -1,0 +1,78 @@
+<app-header [options]="headerOptions"></app-header>
+
+<div class="container">
+    <form 
+    class="ajustesReglas__form bs-form"
+    [formGroup]="form"
+    >
+
+    <div class="bs-container-input">
+        <label>Plan mensual</label>
+        <div class="input__icon">
+            <select [ngClass]="{
+                error:
+                  formControl['planMensual'].invalid &&
+                  formControl['planMensual'].touched
+              }"
+              class="bs-input-border"
+              formControlName="planMensual"
+            >
+                <option value="">Seleccione</option>
+                <option >Agosto</option>
+                <option >Septiembre</option>
+                <option >Octubre</option>
+            </select>
+        </div>
+        <div
+        *ngIf="
+          formControl['planMensual'].invalid && formControl['planMensual'].touched
+        "
+        class="bs-container__error"
+      >
+        <p class="bs-input-error-message">
+          <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+          Debe seleccionar un mes
+        </p>
+      </div>
+    </div>
+
+    <div class="bs-container-input bs-container-item">
+        <div class="bs-item">
+            <label>Fecha de cierre</label>
+        </div>
+        <div class="bs-item divA">
+            <div class="input__icon mt-10 mb-10">
+                <input
+                class="bs-input-border"
+                [ngClass]="{
+                    error:
+                    formControl['fechaCierre'].invalid &&
+                    formControl['fechaCierre'].touched
+                }"
+                type="date"
+                formControlName="fechaCierre"
+                name="fechaCierre" 
+                max="2022-12-31"
+                />
+            </div>
+        </div>
+    </div>
+    <div *ngIf="
+        formControl['fechaCierre'].invalid && formControl['fechaCierre'].touched" 
+        class="bs-container__error">
+        <p class="bs-input-error-message">
+        <i-feather class="icon__error" name="alert-triangle"></i-feather>
+        Debe ingresar una fecha de cierre
+        </p>
+    </div>
+
+    <div class="bs-form__actions">
+        <button class="bs-button bs-button-primary" (click)="showModal()">
+            Generar cierre
+        </button>
+    </div>
+
+  </form>
+</div>
+
+

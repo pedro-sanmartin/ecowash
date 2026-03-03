@@ -1,0 +1,52 @@
+<form
+  class="bs-form-dialog dialog_usuarios__form"
+  [formGroup]="form"
+  (ngSubmit)="filtrar()"
+>
+  <button class="mat-dialog-close" (click)="closeModal()">
+    <i-feather name="x"></i-feather>
+  </button>
+  <div class="bs-container-input">
+    <div class="">
+      <label>Rol</label>
+      <div class="input__icon">
+        <select class="bs-input-border mt-5" formControlName="idRol">
+          <option value="">Todos</option>
+          <option *ngFor="let item of data" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="bs-container-input">
+      <label>Estado</label>
+      <div class="container__radio">
+        <div class="input__radio">
+          <input
+            class="custom-control-input"
+            id="activo"
+            type="radio"
+            name="idEstado"
+            value="1"
+            formControlName="idEstado"
+          /><label class="custom-control-label" for="activo">Activo</label>
+        </div>
+        <div class="input__radio">
+          <input
+            class="custom-control-input"
+            id="inactivo"
+            type="radio"
+            name="idEstado"
+            value="0"
+            formControlName="idEstado"
+          /><label class="custom-control-label" for="inactivo">Inactivo</label>
+        </div>
+      </div>
+    </div>
+
+    <button class="bs-button bs-button-primary" (click)="filtrar()">
+      Filtrar
+    </button>
+  </div>
+</form>

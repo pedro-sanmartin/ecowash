@@ -1,0 +1,12 @@
+.main__img {
+    display: flex;
+    padding: 4.5rem 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__navigation {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: 1.3rem;
+}

@@ -1,0 +1,17 @@
+<div class="submenu">
+  <div class="container container__submenu">
+    <div class="submenu__row">
+      <div *ngFor="let item of submenu" class="div_submenu">
+        <div class="submenu__col" [ngClass]="{ 'div-active': item.active }">
+          <a
+            class="submenu__ancla"
+            [ngClass]="{ 'ancla-active': item.active }"
+            [routerLink]="item.url"
+          >
+            {{ item.title }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

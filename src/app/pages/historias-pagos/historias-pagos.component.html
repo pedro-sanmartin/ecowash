@@ -1,0 +1,165 @@
+<app-header [options]="headerOptions"></app-header>
+
+<div class="container">
+
+    <app-submenu [submenu]="submenu"></app-submenu> 
+    <form 
+    class="pagar__form bs-form"
+    [formGroup]="form"
+    >
+        <div class="bs-container-input divNomLoc">
+          <div class="input__icon inputMeses">
+            <label>Seleccione mes</label>
+            <select
+              [ngClass]="{
+                error: formControl['meses'].invalid && formControl['meses'].touched
+              }"
+              class="bs-input-green mt-5"
+              formControlName="meses"
+            >
+              <option value="">Seleccione</option>
+              <option *ngFor="let item of listaMeses" [value]="item.id">
+                {{ item.nombre }}
+              </option>
+            </select>
+          </div>
+          <div class="input__icon inputNomLoc">
+            <label>Seleccione local</label>
+            <select
+              [ngClass]="{
+                error:
+                  formControl['idLocal'].invalid && formControl['idLocal'].touched
+              }"
+              class="bs-input mt-5"
+              formControlName="idLocal"
+            >
+              <option value="">Seleccione</option>
+              <option *ngFor="let item of locales" [value]="item.id">
+                {{ item.nombre }}
+              </option>
+            </select>
+          </div>
+          </div>
+          <div
+          *ngIf="
+            formControl['meses'].invalid && formControl['meses'].touched
+          "
+          class="bs-container__error"
+        >
+          <p class="bs-input-error-message">
+            <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+            Debe seleccionar un mes
+          </p>
+        </div>
+          <div
+          *ngIf="
+            formControl['idLocal'].invalid && formControl['idLocal'].touched
+          "
+          class="bs-container__error"
+        >
+          <p class="bs-input-error-message">
+            <i-feather class="icon__error" name="alert-triangle"></i-feather> 
+            Debe seleccionar un Local
+          </p>
+        </div>
+        
+        <div class="bs-parrafo-pagos">
+            <p class="bs-parrafo-saldo">Responsable:<span class="bs-span-saldo"> Usuario demo</span></p>
+        </div>
+
+        <div class="bs-card-garantia">
+            <app-card-garantia [cardGarantia]="cardGarantia"></app-card-garantia>
+        </div>
+
+        <div class="bs_cuadro_indicadores">
+          <div class="bs_parrafo_garantia">
+            <p class="parrafo_garantia">Plan mensual</p>
+            <p class="parrafo_garantia">$1.400.000</p>
+          </div>
+          <div class="bs_parrafo_garantia_dark">
+            <p class="parrafo_garantia">Plan mensual ajustado</p>
+            <p class="parrafo_garantia">$1.100.000</p>
+          </div>
+          <div class="bs_parrafo_garantia">
+            <p class="parrafo_garantia">Descuentos</p>
+            <p class="parrafo_garantia">$300.000</p>
+          </div>
+          <div class="bs_parrafo_garantia_dark">
+            <p class="parrafo_garantia">Abono</p>
+            <p class="parrafo_garantia">$1.100.000</p>
+          </div>                                               
+        </div>
+
+        <div class="bs_accordion">
+
+          <div class="wrapper">
+            <div class="half">
+              <div class="tab tab_A">
+                <input id="tab-one" type="checkbox" name="tabs">
+                <label for="tab-one">Plan semana 1 <span class="tabItem">$350.000</span></label>
+                <div class="tab-content tab_content_A">
+                    <div class="bs_cuadro_semana">
+                        <p class="bs_parrafo_garantia">Lunes<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Martes ajustado<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia">Miércoles<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Jueves<span></span>$50.000</p>
+                        <p class="bs_parrafo_garantia">Viernes<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Sábado ajustado<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia">Domingo<span>$50.000</span></p>
+                    </div>
+                </div>
+              </div>
+              <div class="tab tab_B">
+                <input id="tab-two" type="checkbox" name="tabs">
+                <label for="tab-two">Plan semana 2<span class="tabItem">$350.000</span></label>
+                <div class="tab-content tab_content_A">
+                    <div class="bs_cuadro_semana">
+                        <p class="bs_parrafo_garantia">Lunes<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Martes ajustado<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia">Miércoles<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Jueves<span></span>$50.000</p>
+                        <p class="bs_parrafo_garantia">Viernes<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Sábado ajustado<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia">Domingo<span>$50.000</span></p>
+                    </div>
+                </div>
+              </div>
+              <div class="tab tab_A">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label for="tab-three">Plan semana 3<span class="tabItem">$350.000</span></label>
+                <div class="tab-content tab_content_A">
+                    <div class="bs_cuadro_semana">
+                        <p class="bs_parrafo_garantia">Lunes<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Martes ajustado<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia">Miércoles<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Jueves<span></span>$50.000</p>
+                        <p class="bs_parrafo_garantia">Viernes<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Sábado ajustado<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia">Domingo<span>$50.000</span></p>
+                    </div>
+                </div>
+              </div>
+              <div class="tab tab_B">
+                <input id="tab-four" type="checkbox" name="tabs">
+                <label for="tab-four">Plan semana 4<span class="tabItem">$350.000</span></label>
+                <div class="tab-content tab_content_A">
+                    <div class="bs_cuadro_semana">
+                        <p class="bs_parrafo_garantia">Lunes<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Martes ajustado<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia">Miércoles<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Jueves<span></span>$50.000</p>
+                        <p class="bs_parrafo_garantia">Viernes<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia_dark">Sábado ajustado<span>$50.000</span></p>
+                        <p class="bs_parrafo_garantia">Domingo<span>$50.000</span></p>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        </div>
+
+    </form>
+
+  </div>
+

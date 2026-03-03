@@ -1,0 +1,9 @@
+.container__main {
+    background-color: var(--bs-green);
+    height: 100vh;
+}
+.input__icon {
+    margin-top: 40%;
+}
+
+

@@ -1,0 +1,16 @@
+.botonFiltrarUsuarios{
+    margin-top: 25px;
+    margin-bottom: 5px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.parrafofiltrarUsuarios{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #757575;
+    position: relative;
+    right: 90px;
+}

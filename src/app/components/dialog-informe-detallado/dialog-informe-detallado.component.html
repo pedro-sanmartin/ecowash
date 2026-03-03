@@ -1,0 +1,66 @@
+<form class="bs-form-dialog dialog_usuarios__form">
+  <div class="bs-container-input">
+    <div class="divNomLoc">
+        <div class="input__icon w-50">
+          <label class="mb-10">Fecha</label>
+          <select
+            class="bs-input-border mt-5"
+            formControlName="meses"
+            >
+            <option value="">Mes</option>
+            <option *ngFor="let item of listaMeses" [value]="item.id">
+              {{ item.nombre }}
+            </option>
+          </select>
+        </div>
+        <div class="input__icon w-50">
+            <label>&nbsp;</label>
+            <select
+              class="bs-input-border mt-5"
+              formControlName="año"
+              >
+              <option value="">Año</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+            </select>
+          </div>
+    </div>
+
+    <div class="input__icon">
+        <label>Local</label>
+        <select
+          class="bs-input-border mt-5"
+          formControlName="idLocal"
+          >
+          <option value="">Seleccione</option>
+          <option *ngFor="let item of listaLocales" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+
+      <div class="bs-container-input">
+        <label>Jefe de ventas</label>
+        <div class="input__icon">
+          <select
+            class="bs-input-border"
+            formControlName="idJefeVentas"
+            >
+            <option value="">Seleccione</option>
+            <option *ngFor="let item of jefesDeVenta" [value]="item.id">
+              {{ item.nombre }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <button class="bs-button bs-button-primary mt-10" (click)="filtrar()">
+        Aplicar filtro
+      </button>    
+  </div>
+</form>
+
+
+
+

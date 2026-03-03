@@ -1,0 +1,32 @@
+<app-header [options]="headerOptions"></app-header>
+<app-submenu [submenu]="submenu"></app-submenu>
+<div class="container">
+  <div class="container-center">
+    <p class="parrafofiltrarUsuarios">
+      <!-- Aplica filtros para generar un reporte -->
+    </p>
+    <button
+      class="bs-button bs-button-primary botonFiltrarUsuarios"
+      (click)="openDialog()"
+    >
+      Filtrar
+    </button>
+    <button
+      class="bs-button bs-button-secondary botonFiltrarUsuarios mt-10"
+      (click)="limpiarFiltros()"
+    >
+      Limpiar filtros
+    </button>
+  </div>
+  <div class="container__main">
+    <app-sin-datos
+      *ngIf="locales.length == 0"
+      [message]="message"
+    ></app-sin-datos>
+    <app-card-locales
+      *ngFor="let local of localesFiltro"
+      [local]="local"
+    ></app-card-locales>
+  </div>
+</div>
+<app-footer [textButton]="textButton" [urlButton]="urlButton"></app-footer>

@@ -1,0 +1,51 @@
+import { Injectable } from '@angular/core';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+  HttpErrorResponse,
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
+
+
+@Injectable()
+export class TokenInterceptor implements HttpInterceptor {
+  constructor(private _authService: AuthService) {}
+
+  intercept(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+
+    return next.handle(request)
+    .pipe(tap({
+        next: () => null,
+        error: (err: HttpErrorResponse) => {
+            if (err.status === 401 || err.status === 403) {
+              Swal.fire({
+                imageUrl: '../../../assets/images/icon-fail.svg',
+                text: 'Tu sesión ha caducado',
+                showConfirmButton: true,
+                confirmButtonText: 'Volver',
+                padding: '1rem 0',
+                width: '296',
+                customClass: {
+                  popup: 'bs-modal',
+                  htmlContainer: 'bs-text',
+                  confirmButton: 'bs-button bs-button-primary',
+                  cancelButton: 'bs-button bs-button-secondary',
+                  title: 'bs-title',
+                  icon: 'bs-icon-modal',
+                },
+              });
+                this._authService.Logout();
+            }
+        }
+    })
+    );
+  }
+}

@@ -1,0 +1,47 @@
+<app-header [options]="headerOptions"></app-header>
+
+<div class="container">
+
+        <form 
+        class="pagar__form bs-form"
+        [formGroup]="form"
+        >
+            <div class="bs-card-garantia">
+                <app-card-garantia></app-card-garantia>
+            </div>
+
+            <div class="bs-filtros-abonos-cargos">
+                <div class="">
+                    <button class="bs-button-filtros-active">Todos<i-feather class="icon" name="list"></i-feather></button>
+                </div>
+                <div class="">
+                    <button class="bs-button-filtros">Abonos<i-feather class="icon" name="arrow-up-right"></i-feather></button>
+                </div>
+                <div class="">
+                    <button class="bs-button-filtros">Cargos<i-feather class="icon" name="arrow-down-left"></i-feather></button>
+                </div>
+            </div>
+
+            <div>
+                <hr class="hr_garantia">
+            </div>
+
+            <div class="bs-mes-filtro">
+                <p class="parrafo-mes-filtro"><i-feather class="icon-mes-filtro" name="calendar"></i-feather>Agosto 2022</p>
+            </div>
+
+            <div class="bs-card-abono">
+                <app-card-abonos></app-card-abonos>
+            </div>
+
+            <div class="bs-mes-filtro">
+                <p class="parrafo-mes-filtro"><i-feather class="icon-mes-filtro" name="calendar"></i-feather>Julio 2022</p>
+            </div>
+
+            <div class="bs-card-abono">
+                <app-card-abonos></app-card-abonos>
+            </div>
+
+        </form>
+    
+  </div>

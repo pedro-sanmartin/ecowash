@@ -1,0 +1,45 @@
+<form class="bs-form-dialog dialog_usuarios__form" [formGroup]="form">
+  <button class="mat-dialog-close" (click)="closeModal()">
+    <i-feather name="x"></i-feather>
+  </button>
+  <div class="bs-container-input">
+    <div class="input__icon">
+      <label>Local</label>
+      <select class="bs-input-border mt-5" formControlName="idLocal">
+        <option value="">Todos</option>
+        <option *ngFor="let item of data.locales" [value]="item.id">
+          {{ item.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <div class="divNomLoc">
+      <div class="input__icon w-50">
+        <label>Región</label>
+        <select
+          (change)="obtenerComunasPorRegion($event)"
+          class="bs-input-border mt-5"
+          formControlName="region"
+        >
+          <option value="">Todas</option>
+          <option *ngFor="let item of data.regiones" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+      <div class="input__icon w-50">
+        <label>Comuna</label>
+        <select class="bs-input-border mt-5" formControlName="comuna">
+          <option value="">Todas</option>
+          <option *ngFor="let item of comunas" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <button class="bs-button bs-button-primary mt-10" (click)="filtrar()">
+      Filtrar
+    </button>
+  </div>
+</form>

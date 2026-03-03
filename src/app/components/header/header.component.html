@@ -1,0 +1,28 @@
+<div class="header">
+  <div class="container container__header">
+    <div class="header__back">
+      <a *ngIf="options.isNotificacion"class="color-white" (click)="openDialog()">
+        <img src="../../../assets/images/bell.svg" alt="Mensajes" />
+      </a>
+      <a *ngIf="options.isBack" [routerLink]="options.url">
+        <i-feather class="icon" name="arrow-left"></i-feather>
+      </a>
+    </div>
+    <div class="header__title color-white">
+      {{ options.title }}
+    </div>
+    <div class="header__menu">
+      <a (click)="showMenu()" class="color-white">
+        <i-feather class="icon" name="menu"></i-feather>
+      </a>
+    </div>
+  </div>
+</div>
+<app-menu></app-menu>
+
+
+
+
+
+
+

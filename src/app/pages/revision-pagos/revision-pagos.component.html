@@ -1,0 +1,19 @@
+<app-header [options]="headerOptions"></app-header>
+
+<div class="container">
+
+    <app-submenu [submenu]="submenu"></app-submenu>
+    <form class="pagar__form bs-form">
+        <div class="bs-form__actions mb-5">
+            <button class="bs-button bs-button-primary" (click)="openDialog()">
+                Filtrar
+            </button>
+        </div>
+        <p class="bs-parrafo-bottom-modal mb-25">Aplica filtros para generar un reporte</p>
+
+        <div class="bs-card-abono">
+            <app-card-revision-pagos></app-card-revision-pagos>
+        </div>
+    </form>
+
+</div>

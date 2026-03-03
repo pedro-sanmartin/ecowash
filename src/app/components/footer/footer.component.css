@@ -1,0 +1,19 @@
+.footer {
+  height: 113px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(237, 237, 237, 0) 0%,
+    var(--bs-background) 28.5%
+  );
+  z-index: 2;
+}
+
+.footer .icon {
+  width: 14px;
+}

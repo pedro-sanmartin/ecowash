@@ -1,0 +1,25 @@
+<div class="container__card">
+    <div class="container__card_garantia">
+        <div class="divCardGar">
+            <div class="divGar">
+                <p class="parrafo_garantia">Garantía fijada</p>
+                <p class="parrafo_garantia_black">$600.000</p>
+            </div>
+            <div class="divGar">
+                <p class="parrafo_garantia">Saldo garantía</p>
+                <p class="parrafo_garantia_red">$480.000</p>
+            </div>
+        </div>
+    </div>
+    <hr class="hr_garantia">
+
+    <div class="div_ancla_garantia" *ngFor="let item of cardGarantia">
+        <h1>
+            <a class="ancla_garantia"
+            [routerLink]="item.url"
+            > {{ item.title }} ></a></h1>
+    </div>
+
+</div>
+
+
