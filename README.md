@@ -2,6 +2,8 @@
 
 > **Demo técnica de frontend** — Interfaz basada en un sistema real desarrollado para una empresa del rubro de servicios en terreno. Código recreado de forma independiente con fines estrictamente de demostración técnica.
 
+![Captura EcoWash](src/assets/images/capturaEcowash_Mesa%20de%20trabajo%201.png)
+
 ---
 
 ## ⚠️ Aclaración importante
